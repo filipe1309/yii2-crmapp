@@ -26,4 +26,17 @@ cept run
 cept build
 cept run
 
+# Codeption - Create one acceptance test called QueryCustomerByPhoneNumber.php in tests/acceptance
+cept generate:cept acceptance QueryCustomerByPhoneNumber
+
+# Codeption - generate an extended class from AcceptanceTester called CRMOperatorSteps.php in tests/_support/Step/Acceptance
+cept generate:stepobject acceptance CRMOperatorSteps
+
+# Codeption - generate an extended class from AcceptanceTester called CRMUserSteps.php in tests/_support/Step/Acceptance
+cept generate:stepobject acceptance CRMUserSteps
+
+composer require "fzaninotto/faker:*"
+
+cept run
+
 ```
