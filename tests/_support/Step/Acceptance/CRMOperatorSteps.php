@@ -15,7 +15,7 @@ class CRMOperatorSteps extends \AcceptanceTester
         return [
             'CustomerRecord[name]' => $faker->name,
             'CustomerRecord[birth_date]' => $faker->date('Y-m-d'),
-            'CustomerRecord[notes]' => $faker->setence(8),
+            'CustomerRecord[notes]' => $faker->sentence(8),
             'CustomerRecord[number]' => $faker->phoneNumber
         ];
     }
