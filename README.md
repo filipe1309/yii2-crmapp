@@ -39,4 +39,5 @@ composer require "fzaninotto/faker:*"
 
 cept run
 
+composer require "yiisoft/yii2:*"
 ```
