@@ -39,3 +39,5 @@ tests/_support/_generated
 
 # php error log file
 php_errors.log
+
+db_config.ini
