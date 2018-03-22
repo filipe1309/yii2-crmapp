@@ -45,4 +45,5 @@ composer require "yiisoft/yii2:*"
 # Yii2 - Create mandatory folders for yii2 
 mkdir runtime
 mkdir web/assets
+
 ```
