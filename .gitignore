@@ -1,6 +1,6 @@
 ### Yii2 ###
 # yii console command
-/yii
+#/yii
 
 # phpstorm project files
 .idea
@@ -22,6 +22,9 @@ Thumbs.db
 # composer itself is not needed
 composer.phar
 
+# composer lock fiel
+composer.lock
+
 # Mac DS_Store Files
 .DS_Store
 
@@ -30,9 +33,9 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
+# tests files
 tests/_output/*
 tests/_support/_generated
 
-composer.lock
-
+# php error log file
 php_errors.log
