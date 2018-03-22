@@ -46,4 +46,9 @@ composer require "yiisoft/yii2:*"
 mkdir runtime
 mkdir web/assets
 
+chmod +x yii
+
+./yii migrate/create init_customer_table
+./yii migrate/create init_phone_table
+./yii migrate
 ```
