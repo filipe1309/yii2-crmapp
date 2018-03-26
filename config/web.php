@@ -6,5 +6,9 @@ return [
         'request' => [
             'cookieValidationKey' => 'hakunamatata', // pk for "remember me" on auth
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false
+        ]
     ],
 ];
