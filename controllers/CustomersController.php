@@ -12,14 +12,14 @@ class CustomersController extends Controller
 {
     public function actionIndex() {
         $records = $this->getRecordsAccordingToQuery();
-        $this->render('index', compact('records'));
+        return $this->render('index', compact('records'));
     }
     
     public function actionAdd()
     {
         $customer = new CustomerRecord;
         $phone = new PhoneRecord;
-        $this->render('add', compact('customer', 'phone'));
+        return $this->render('add', compact('customer', 'phone'));
     }
     
     /**
