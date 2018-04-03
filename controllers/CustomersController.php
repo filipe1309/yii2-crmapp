@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use Yii;
+use yii\data\ArrayDataProvider;
 use yii\web\Controller;
 use app\models\customer\Customer;
 use app\models\customer\CustomerRecord;
