@@ -30,6 +30,10 @@ class CustomersController extends Controller
         return $this->render('add', compact('customer', 'phone'));
     }
     
+    public function actionQuery() {
+        return $this->render('query');
+    }
+    
     private function findRecordsByQuery()
     {
         $number = Yii::$app->request->get('phone_number');
