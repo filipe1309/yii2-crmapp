@@ -11,7 +11,7 @@ use app\models\customer\PhoneRecord;
 class CustomersController extends Controller 
 {
     public function actionIndex() {
-        $records = $this->getRecordsAccordingToQuery();
+        $records = $this->findRecordsByQuery();
         return $this->render('index', compact('records'));
     }
     
@@ -28,6 +28,14 @@ class CustomersController extends Controller
         
         // stateful magic: both $customer and $phone will be validated at this point
         return $this->render('add', compact('customer', 'phone'));
+    }
+    
+    private function findRecordsByQuery()
+    {
+        $number = Yii::$app->request->get('phone_number');
+        $records = $this->getRecordsByPhoneNumber($number);
+        $dataProvider = $this->wrapIntoDataProvider($records);
+        return $dataProvider;
     }
     
     private function load(CustomerRecord $customer, PhoneRecord $phone, array $post)
