@@ -38,6 +38,16 @@ class CustomersController extends Controller
         return $dataProvider;
     }
     
+    private function wrapIntoDataProvider($data)
+    {
+        return new ArrayDataProvider(
+            [
+                'allModels' => $data,
+                'pagination' => false
+            ]
+        );
+    }
+    
     private function load(CustomerRecord $customer, PhoneRecord $phone, array $post)
     {
         return $customer->load($post)
