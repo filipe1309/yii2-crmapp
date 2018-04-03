@@ -1,5 +1,5 @@
 <?php
-echo \yii\widgets\ListView::widgets(
+echo \yii\widgets\ListView::widget(
     [
         'options' => [
             
