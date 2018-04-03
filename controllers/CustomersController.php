@@ -25,7 +25,7 @@ class CustomersController extends Controller
         if ($this->load($customer, $phone, $_POST))
         {
             $this->store($this->makeCustomer($customer, $phone));
-            return $this->redirect('/customers');
+            return $this->redirect(['index']);
         }
         
         // stateful magic: both $customer and $phone will be validated at this point
