@@ -51,4 +51,10 @@ chmod +x yii
 ./yii migrate/create init_customer_table
 ./yii migrate/create init_phone_table
 ./yii migrate
+
+./yii migrate/create init_service_table
+./yii migrate
+
+# Add Gii module
+composer require --prefer-dist "yiisoft/yii2-gii:*"
 ```
