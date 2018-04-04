@@ -4,6 +4,11 @@ This repository contains the project of a book called "Web Application Developme
 
 ## Commands
 ```shell
+
+############
+# Chapter 2
+############
+
 mkdir yii2-crmapp
 cd yii2-crmapp
 git init
@@ -46,11 +51,18 @@ composer require "yiisoft/yii2:*"
 mkdir runtime
 mkdir web/assets
 
+# MySQL yii2 table
+# create database `crmapp` default character set utf8 default collate utf8_unicode_ci;
+
 chmod +x yii
 
 ./yii migrate/create init_customer_table
 ./yii migrate/create init_phone_table
 ./yii migrate
+
+############
+# Chapter 3
+############
 
 # run acceptance tests only
 cept run acceptance
