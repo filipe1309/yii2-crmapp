@@ -6,6 +6,12 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module',
+            'allowedIPs' => ['*']
+        ]
+    ],
     'components' => [
         'request' => [
             'cookieValidationKey' => 'hakunamatata', // pk for "remember me" on auth
@@ -16,4 +22,5 @@ return [
         ],
         'db' => require(__DIR__ . '/db.php'),
     ],
+    'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php')
 ];
