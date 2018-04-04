@@ -52,6 +52,9 @@ chmod +x yii
 ./yii migrate/create init_phone_table
 ./yii migrate
 
+# run acceptance tests only
+cept run acceptance
+
 ./yii migrate/create init_service_table
 ./yii migrate
 
