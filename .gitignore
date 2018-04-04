@@ -41,6 +41,3 @@ tests/_support/_generated
 php_errors.log
 
 db_config.ini
-
-web/assets
-runtime
