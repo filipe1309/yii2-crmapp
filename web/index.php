@@ -2,6 +2,9 @@
 // Set debug mode
 define('YII_DEBUG', true);
 
+// Composer autoload
+require(__DIR__ . '/../vendor/autoload.php');
+
 // Including the Yii framework itsolf
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
