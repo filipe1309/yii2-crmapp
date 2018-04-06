@@ -59,4 +59,50 @@ class CRMServicesManagementSteps extends CRMGuestSteps
         $I = $this;
         $I->see($service_data['ServiceRecord[name]'], self::SERVICES_LIST_SELECTOR);
     }
+    
+    public function seeEditButtonBesideService($service_data)
+    {
+        $I = $this;
+        $xpath = $this->makeXpathForButtonNearServiceName(
+            $service_data['ServiceRecord[name]'],
+            'Update'
+        );
+        $I->seeElement($xpath);
+    }
+    
+    public function makeXpathForButtonNearServiceName(
+        $service_name, 
+        $button_title
+    ){
+        $xpath = sprintf('//td[text()="%s"]/following-sibling::td/a[@title="%s"]',
+            $service_name,
+            $button_title
+        );
+        return $xpath;
+    }
+    
+    public function clickEditButtonBesideService($service_data)
+    {
+        $I = $this;
+        $xpath = $this->makeXpathForButtonNearServiceName(
+            $service_data['ServiceRecord[name]'],
+            'Update'
+        );
+        $I->click($xpath);
+    }
+    
+    public function seeEditServiceUi()
+    {
+        $I = $this;
+        $I->seeCurrentUrlMatches('~services/update~');
+        $I->see('Update');
+    }
+    
+    public function dontSeeServiceInList($service_data)
+    {
+        $I = $this;
+        $I->dontSee($service_data['ServiceRecord[name]'],
+            self::SERVICES_LIST_SELECTOR
+        );
+    }
 }
