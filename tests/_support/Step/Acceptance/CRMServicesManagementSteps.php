@@ -43,7 +43,7 @@ class CRMServicesManagementSteps extends CRMGuestSteps
     {
         $I = $this;
         $I->click('button[type=submit]');
-        $I->wait(1);
+        //$I->wait(1);
     }
     
     public function seeIamInViewServiceUi()
