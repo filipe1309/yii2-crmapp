@@ -5,7 +5,7 @@ class CRMServicesManagementSteps extends CRMGuestSteps
 {
     const SERVICES_LIST_SELECTOR = '.grid-view';
     
-    public function amInListServiceUi()
+    public function amInListServicesUi()
     {
         $I = $this;
         $I->amOnPage('/services');
