@@ -98,11 +98,60 @@ class CRMServicesManagementSteps extends CRMGuestSteps
         $I->see('Update');
     }
     
+    public function seeIAmInListServicesUi()
+    {
+        $I = $this;
+        $I->seeCurrentUrlMatches('/services/'); // regexp
+        $I->seeElement(self::SERVICES_LIST_SELECTOR);
+    }
+    
     public function dontSeeServiceInList($service_data)
     {
         $I = $this;
         $I->dontSee($service_data['ServiceRecord[name]'],
             self::SERVICES_LIST_SELECTOR
         );
+    }
+    
+    public function seeDeleteButtonBesideService($service_data)
+    {
+        $I = $this;
+        $xpath = $this->makeXpathForButtonNearServiceName(
+            $service_data['ServiceRecord[name]'],
+            'Delete'
+        );
+        $I->seeElement($xpath);
+    }
+    
+    public function clickDeleteButtonBesideService($service_data)
+    {
+        $I = $this;
+        $xpath = $this->makeXpathForButtonNearServiceName(
+            $service_data['ServiceRecord[name]'],
+            'Delete'
+        );
+        $I->click($xpath);
+        $I->wait(1);
+    }
+    
+    public function seeDeletionConfirmation()
+    {
+        $I = $this;
+        $I->seeInPopup('delete');
+        //$I->seeInSource('delete');
+    }
+    
+    public function cancelDeletion()
+    {
+        $I = $this;
+        $I->cancelPopup();
+        //$I->click('Cancelar');
+    }
+    
+    public function confirmDeletion()
+    {
+        $I = $this;
+        $I->acceptPopup();
+        //$I->click('OK');
     }
 }
