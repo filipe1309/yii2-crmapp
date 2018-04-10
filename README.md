@@ -72,4 +72,35 @@ cept run acceptance
 
 # Add Gii module
 composer require --prefer-dist "yiisoft/yii2-gii:*"
+
+cept generate:cept acceptance RegisterNewService
+cept generate:stepobject acceptance CRMServicesManagementSteps
+cept generate:stepobject acceptance CRMGuestSteps
+cept generate:cept acceptance EditService
+cept generate:cept acceptance DeleteService
+
+// Add git tags to chapters
+git tag -a c2 -m"Chapter 2" 929021e9535eaf1ac
+git tag -a c3 -m"Chapter 3" 24c5c5b7bd6d7e355d
+git push origin --tags
+
+phantomjs --webdriver=4444
+
+# update java
+sudo vim /etc/apt/sources.list
+deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+sudo apt-get update
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get install oracle-java8-installer
+
+# add Gecko Driver (Firefor) for Selenium server
+% export PATH=$PATH:/bin
+% whereis geckodriver
+geckodriver: /bin/geckodriver
+
+# Switch from PhpBrowser to Selenium to be able to deal with popups
+# use xvfb to run headless browser
+Xvfb &
+java -jar selenium_sa_3.8.1.jar -enablePassThrough false
 ```
