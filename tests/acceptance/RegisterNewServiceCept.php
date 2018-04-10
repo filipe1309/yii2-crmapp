@@ -2,6 +2,8 @@
 $I = new \Step\Acceptance\CRMServicesManagementSteps($scenario);
 $I->wantTo('register two Services in database');
 
+$I->skipCloud9PreviewPage();
+
 $I->amInListServicesUi();
 $I->clickOnRegisterNewServiceButton();
 $I->seeIamInAddServiceUi();
