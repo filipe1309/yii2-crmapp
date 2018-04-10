@@ -23,4 +23,13 @@ class AcceptanceTester extends \Codeception\Actor
    /**
     * Define custom actions here
     */
+    
+    public function skipCloud9PreviewPage()
+    {
+        // Skip Cloud9 Preview Page
+        $I = $this;
+        $I->amOnPage('/');
+        $I->executeJs("document.cookie = 'c9.live.user.click-through=ok;'");
+        $I->reloadPage();
+    }
 }
