@@ -7,6 +7,7 @@ use app\models\service\ServiceRecord;
 use app\models\service\ServiceSearchModel;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 use yii\filters\VerbFilter;
 
 /**
@@ -123,5 +124,20 @@ class ServicesController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    
+    public function actionJson()
+    {
+        $models = ServiceRecord::find()->all();
+        $data = array_map(
+            function ($model) { return $model->attributes; },
+            $models
+        );
+        
+        $response = Yii::$app->response;
+        $response->format = Response::FORMAT_JSON;
+        $response->data = $data;
+        
+        return $response;
     }
 }
