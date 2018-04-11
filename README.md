@@ -113,4 +113,9 @@ sudo apt-get install xvfb
 
 # command to run test with a headless browser in selenium using xvfb
 DISPLAY=:1 xvfb-run java -jar selenium_sa_3.8.1.jar -enablePassThrough false
+
+cept generate:cept acceptance Documentation
+cept build
+cept run acceptance DocumentationCept
+# cept run tests/acceptance/DocumentationCept
 ```
