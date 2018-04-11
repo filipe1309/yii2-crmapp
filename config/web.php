@@ -21,6 +21,16 @@ return [
             'showScriptName' => false
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'view' => [
+            'renderers' => [
+                // Files using md extension
+                'md' => [
+                    // MD Renderer
+                    // Class to render files from this entesion
+                    'class' => 'app\utilities\MarkdownRenderer'
+                ]
+            ]
+        ]
     ],
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php')
 ];
