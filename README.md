@@ -99,8 +99,18 @@ sudo apt-get install oracle-java8-installer
 % whereis geckodriver
 geckodriver: /bin/geckodriver
 
+# install Xvfb
+sudo apt-get install xvfb
+# set display number to :99
+## Xvfb :99 -ac &
+## export DISPLAY=:99    
+# you are now having an X display by Xvfb
+
 # Switch from PhpBrowser to Selenium to be able to deal with popups
 # use xvfb to run headless browser
-Xvfb &
-java -jar selenium_sa_3.8.1.jar -enablePassThrough false
+## Xvfb &
+## java -jar selenium_sa_3.8.1.jar -enablePassThrough false
+
+# command to run test with a headless browser in selenium using xvfb
+DISPLAY=:1 xvfb-run java -jar selenium_sa_3.8.1.jar -enablePassThrough false
 ```
