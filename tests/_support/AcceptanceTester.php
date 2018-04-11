@@ -32,4 +32,9 @@ class AcceptanceTester extends \Codeception\Actor
         $I->executeJs("document.cookie = 'c9.live.user.click-through=ok;'");
         $I->reloadPage();
     }
+    
+    public function seeContentIsLong($content, $trigger_length = 100)
+    {
+        $this->assertGreaterThen($trigger_length, strlen($content));
+    }
 }
