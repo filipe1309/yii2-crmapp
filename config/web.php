@@ -29,6 +29,10 @@ return [
                     // Class to render files from this entesion
                     'class' => 'app\utilities\MarkdownRenderer'
                 ]
+            ],
+            'theme' => [
+                'class' => yii\base\Theme::className(),
+                'basePath' => '@app/themes/snowy'
             ]
         ],
         'response' => [
