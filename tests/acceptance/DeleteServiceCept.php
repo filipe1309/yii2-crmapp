@@ -5,7 +5,6 @@ $I->wantTo('delete existing Service record');
 $I->skipCloud9PreviewPage();
 
 $I->amInListServicesUi();
-$I->makeScreenshot('default_services');
 $I->clickOnRegisterNewServiceButton();
 $I->seeIAmInAddServiceUi();
 $first_service = $I->imagineService();
@@ -24,7 +23,6 @@ $I->cancelDeletion();
 
 $I->amInListServicesUi();
 $I->seeServiceInList($first_service);
-$I->makeScreenshot('new_service');
 
 $I->wantTo('check that if I confirm deletion then application deletes Service');
 

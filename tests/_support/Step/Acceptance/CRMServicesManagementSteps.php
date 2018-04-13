@@ -138,20 +138,17 @@ class CRMServicesManagementSteps extends CRMGuestSteps
     {
         $I = $this;
         $I->seeInPopup('delete');
-        //$I->seeInSource('delete');
     }
     
     public function cancelDeletion()
     {
         $I = $this;
         $I->cancelPopup();
-        //$I->click('Cancelar');
     }
     
     public function confirmDeletion()
     {
         $I = $this;
         $I->acceptPopup();
-        //$I->click('OK');
     }
 }
