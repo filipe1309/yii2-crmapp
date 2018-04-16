@@ -16,6 +16,8 @@ git init
 # Composer
 curl -sS https://getcomposer.org/installer | php
 
+composer global require "fxp/composer-asset-plugin:1.0.0-beta4"
+
 # Codeption - inital config
 composer require "codeception/codeception:*"
 alias cept="./vendor/bin/codecept"
@@ -84,7 +86,7 @@ git tag -a c2 -m"Chapter 2" 929021e9535eaf1ac
 git tag -a c3 -m"Chapter 3" 24c5c5b7bd6d7e355d
 git push origin --tags
 
-phantomjs --webdriver=4444
+## phantomjs --webdriver=4444
 
 # update java
 sudo vim /etc/apt/sources.list
@@ -122,4 +124,36 @@ cept generate:cept acceptance Documentation
 cept build
 cept run acceptance DocumentationCept
 # cept run tests/acceptance/DocumentationCept
+
+// Add git tags to chapters
+git tag -a c4 -m"Chapter 4" a8da6a4f16402b40
+git push origin --tags
+
+############
+# Chapter 5
+############
+
+// Add git tags to chapters
+git tag -a c5 -m"Chapter 5" acb3ea19c59369
+git push origin --tags
+
+cept generate:cept acceptance RegisterNewUser
+cept generate:cept acceptance EditUser
+cept generate:cept acceptance DeleteUser
+cept generate:stepobject acceptance CRMUsersManagementSteps
+
+
+./yii migrate/create init_user_table
+./yii migrate
+
+mysqldump -d crmapp > tests/_data/dump.sql
+
+cept build
+## cept generate:test functional PasswordHashing
+cept generate:test unit PasswordHashing
+
+cept run functional --debug
+
+
+
 ```
