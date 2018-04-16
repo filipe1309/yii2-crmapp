@@ -8,5 +8,12 @@
 actor: FunctionalTester
 modules:
     enabled:
-        # add a framework module here
+        - Db:
+            dsn: 'mysql:host=localhost;dbname=crmapp'
+            user: 'filipe1309'
+            password: ''
+            dump: tests/_data/dump.sql
+            cleanup: true
+        - Filesystem
+        - Asserts
         - \Helper\Functional
