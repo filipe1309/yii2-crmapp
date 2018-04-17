@@ -154,6 +154,12 @@ cept generate:test unit PasswordHashing
 
 cept run functional --debug
 
+# Create a new dump file to include the migrations
+mysqldump crmapp > tests/_data/dump.sql
+
+# Add a auth_key fild in user table to use "Remenber me" functionality 
+./yii migrate/create add_auth_key_to_user
+./yii migrate
 
 
 ```
