@@ -52,7 +52,7 @@ class CRMUserSteps extends \AcceptanceTester
     public function seeIAmInLoginFormUi()
     {
         $I = $this;
-        $I->seeCurrentUrlEquals('/site/login');
+        $I->seeCurrentUrlEquals('/web_app_dev_yii2_php/yii2-crmapp/web/site/login');
     }
     
     // TODO Refact this method, equals to fillForm from CRMUsersManagementSteps
@@ -73,7 +73,7 @@ class CRMUserSteps extends \AcceptanceTester
     public function seeIamAtHomepage()
     {
         $I = $this;
-        $I->seeCurrentUrlEquals('/');
+        $I->seeCurrentUrlEquals('/web_app_dev_yii2_php/yii2-crmapp/web/');
     }
     
     public function seeUsername($user)
