@@ -3,6 +3,10 @@
 namespace app\models\user;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
+use yii\base\NotSupportedException;
+
 
 /**
  * This is the model class for table "user".
@@ -11,7 +15,7 @@ use Yii;
  * @property string $username
  * @property string $password
  */
-class UserRecord extends \yii\db\ActiveRecord
+class UserRecord extends ActiveRecord implements IdentityInterface
 {
     /**
      * @inheritdoc
@@ -27,7 +31,7 @@ class UserRecord extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'password'], 'string', 'max' => 255],
+            [['username', 'password', 'auth_key'], 'string', 'max' => 255],
             [['username'], 'unique'],
         ];
     }
@@ -51,6 +55,40 @@ class UserRecord extends \yii\db\ActiveRecord
         if ($this->isAttributeChanged('password'))
             $this->password = Yii::$app->security->generatePasswordHash($this->password);
         
+        if ($this->isNewRecord)
+            $this->auth_key = Yii::$app->security->generateRandomKey($length = 255);
+        
         return $return;
+    }
+    
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    public static function findIdentity($id)
+    {
+        return static::findOne($id);
+    }
+    
+    // Required for "Remember me" functionality
+    public function getAuthKey()
+    {
+        return $this->auth_key;
+    }
+    
+    // Required for "Remember me" functionality
+    public function validateAuthKey($authKey)
+    {
+        return $this->getAuthKey() === $authKey;
+    }
+    
+    // Useful in case of authorization like OAuth2 or OpenID
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        // stub
+        throw new NotSupportedException(
+            'You can only login by username/password pair for now'
+        );
     }
 }
