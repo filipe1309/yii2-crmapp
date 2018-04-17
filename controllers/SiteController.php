@@ -3,7 +3,8 @@
 namespace app\controllers;
 
 use Yii;
-use \yii\web\Controller;
+use yii\web\Controller;
+use app\models\user\LoginForm;
 
 class SiteController extends Controller
 {
