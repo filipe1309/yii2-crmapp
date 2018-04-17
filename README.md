@@ -161,5 +161,6 @@ mysqldump crmapp > tests/_data/dump.sql
 ./yii migrate/create add_auth_key_to_user
 ./yii migrate
 
-
+cept generate:cept acceptance LoginAndLogout
+cept run acceptance LoginAndLogoutCept
 ```
