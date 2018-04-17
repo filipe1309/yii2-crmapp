@@ -1,6 +1,7 @@
 <?php
 namespace app\models\user;
 
+use Yii;
 use yii\base\Model;
 
 class LoginForm extends Model
@@ -23,7 +24,7 @@ class LoginForm extends Model
     
     public function validatePassword($attributeName)
     {
-        if ($this->hasErros())
+        if ($this->hasErrors())
             return;
         
         $user = $this->getUser($this->username);
@@ -42,7 +43,7 @@ class LoginForm extends Model
     
     private function fetchUser($username)
     {
-        return UserRecord::findOne(compact($username));
+        return UserRecord::findOne(compact('username'));
     }
     
     private function isCorrectHash($plaintext, $hash)
