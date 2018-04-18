@@ -44,7 +44,10 @@ return [
         ],
         'user' => [
             'identityClass' => 'app\models\user\UserRecord'
-        ]
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager'
+        ],
     ],
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php')
 ];
