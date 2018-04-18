@@ -60,7 +60,7 @@ CREATE TABLE `migration` (
 
 LOCK TABLES `migration` WRITE;
 /*!40000 ALTER TABLE `migration` DISABLE KEYS */;
-INSERT INTO `migration` VALUES ('m180322_172400_init_customer_table',1523968879),('m180322_173800_init_phone_table',1523968879),('m180404_162646_init_service_table',1523968879),('m180413_164828_init_user_table',1523968879),('m180417_122504_add_auth_key_to_user',1523968879);
+INSERT INTO `migration` VALUES ('m180322_172400_init_customer_table',1523968879),('m180322_173800_init_phone_table',1523968879),('m180404_162646_init_service_table',1523968879),('m180413_164828_init_user_table',1523968879),('m180417_122504_add_auth_key_to_user',1523968879),('m180418_183529_add_predefined_users',1524077137);
 /*!40000 ALTER TABLE `migration` ENABLE KEYS */;
 UNLOCK TABLES;
 
