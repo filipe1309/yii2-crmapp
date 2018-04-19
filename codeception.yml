@@ -10,3 +10,13 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+modules:
+    enabled:
+        - Db:
+            dsn: 'mysql:host=localhost;dbname=crmapp'
+            user: 'filipe1309'
+            password: ''
+            dump: 'tests/_data/dump.sql'
+            cleanup: true
+            populate: true
+            populator: 'mysql -u $user -h $host $dbname < $dump'
