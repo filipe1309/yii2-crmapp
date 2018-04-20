@@ -1,7 +1,7 @@
 <?php
 namespace Step\Acceptance;
 
-class CRMUserSteps extends \AcceptanceTester
+class CRMUserSteps extends CRMGuestSteps
 {
     public function amInQueryCustomerUi()
     {
