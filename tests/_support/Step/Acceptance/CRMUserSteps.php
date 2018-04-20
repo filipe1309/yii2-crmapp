@@ -3,6 +3,9 @@ namespace Step\Acceptance;
 
 class CRMUserSteps extends CRMGuestSteps
 {
+    public $username = 'JoeUser';
+    public $password = '7 wonder @ American soil';
+    
     public function amInQueryCustomerUi()
     {
         $I = $this;

@@ -3,6 +3,9 @@ namespace Step\Acceptance;
 
 class CRMServicesManagementSteps extends CRMGuestSteps
 {
+    public $username = 'AnnieManager';
+    public $password = 'Shiny 3 things hmm, vulnerable';
+    
     const SERVICES_LIST_SELECTOR = '.grid-view';
     
     public function amInListServicesUi()

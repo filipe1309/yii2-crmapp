@@ -3,6 +3,9 @@ namespace Step\Acceptance;
 
 class CRMUsersManagementSteps extends CRMGuestSteps
 {
+    public $username = 'RobAdmin';
+    public $password = 'Imitate #14th symptom of apathy';
+    
     const SERVICES_LIST_SELECTOR = '.grid-view';
     
     public function amInListUsersUi()
