@@ -38,6 +38,7 @@ CREATE TABLE `auth_assignment` (
 
 LOCK TABLES `auth_assignment` WRITE;
 /*!40000 ALTER TABLE `auth_assignment` DISABLE KEYS */;
+INSERT INTO `auth_assignment` VALUES ('admin','3',1524229484),('manager','2',1524229484),('user','1',1524229484);
 /*!40000 ALTER TABLE `auth_assignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,6 +70,7 @@ CREATE TABLE `auth_item` (
 
 LOCK TABLES `auth_item` WRITE;
 /*!40000 ALTER TABLE `auth_item` DISABLE KEYS */;
+INSERT INTO `auth_item` VALUES ('admin',1,'Can do anything including managing users',NULL,NULL,1524229484,1524229484),('guest',1,'Nobody',NULL,NULL,1524229484,1524229484),('manager',1,'Can manage entities in database, but not users',NULL,NULL,1524229484,1524229484),('user',1,'Can use the query UI and nothing else',NULL,NULL,1524229484,1524229484);
 /*!40000 ALTER TABLE `auth_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,6 +97,7 @@ CREATE TABLE `auth_item_child` (
 
 LOCK TABLES `auth_item_child` WRITE;
 /*!40000 ALTER TABLE `auth_item_child` DISABLE KEYS */;
+INSERT INTO `auth_item_child` VALUES ('user','guest'),('admin','manager'),('manager','user');
 /*!40000 ALTER TABLE `auth_item_child` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +171,7 @@ CREATE TABLE `migration` (
 
 LOCK TABLES `migration` WRITE;
 /*!40000 ALTER TABLE `migration` DISABLE KEYS */;
-INSERT INTO `migration` VALUES ('m000000_000000_base',1524166243),('m140506_102106_rbac_init',1524166268),('m170907_052038_rbac_add_index_on_auth_assignment_user_id',1524166268),('m180322_172400_init_customer_table',1524166246),('m180322_173800_init_phone_table',1524166246),('m180404_162646_init_service_table',1524166246),('m180413_164828_init_user_table',1524166246),('m180417_122504_add_auth_key_to_user',1524166246),('m180418_183529_add_predefined_users',1524166248);
+INSERT INTO `migration` VALUES ('m000000_000000_base',1524166243),('m140506_102106_rbac_init',1524166268),('m170907_052038_rbac_add_index_on_auth_assignment_user_id',1524166268),('m180322_172400_init_customer_table',1524166246),('m180322_173800_init_phone_table',1524166246),('m180404_162646_init_service_table',1524166246),('m180413_164828_init_user_table',1524166246),('m180417_122504_add_auth_key_to_user',1524166246),('m180418_183529_add_predefined_users',1524166248),('m180419_204152_create_roles_for_predefined_users',1524229484);
 /*!40000 ALTER TABLE `migration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -260,4 +263,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-19 20:57:54
+-- Dump completed on 2018-04-20 13:07:10
