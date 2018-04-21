@@ -7,10 +7,10 @@ $I->skipCloud9PreviewPage();
 // Customers
 
 $I->amOnPage('/customers/index');
-$I->dontdontSee('Forbidden');
+$I->dontSee('Forbidden');
 
 $I->amOnPage('/customers/query');
-$I->dontdontSee('Forbidden');
+$I->dontSee('Forbidden');
 
 $I->amOnPage('/customers/add');
 $I->dontSee('Forbidden');
