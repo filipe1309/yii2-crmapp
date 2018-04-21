@@ -36,4 +36,43 @@ class CRMGuestSteps extends \AcceptanceTester
         //$I->wait(1);
         //$I->see('guest');
     }
+    
+    public function seeIAmInLoginFormUi()
+    {
+        $I = $this;
+        $I->seeCurrentUrlEquals('/web_app_dev_yii2_php/yii2-crmapp/web/site/login');
+    }
+    
+    // TODO Refact this method, equals to fillForm from CRMUsersManagementSteps
+    public function fillLoginForm($user)
+    {
+        $I = $this;
+        $I->fillField('LoginForm[username]', $user['UserRecord[username]']);
+        $I->fillField('LoginForm[password]', $user['UserRecord[password]']);
+    }
+    
+    public function submitLoginForm()
+    {
+        $I = $this;
+        $I->click('button[type=submit]');
+        $I->wait(1);
+    }
+    
+    public function seeIamAtHomepage()
+    {
+        $I = $this;
+        $I->seeCurrentUrlEquals('/web_app_dev_yii2_php/yii2-crmapp/web/');
+    }
+    
+    public function seeUsername($user)
+    {
+        $I = $this;
+        $I->see($user['UserRecord[username]']);
+    }
+    
+    public function dontSeeUsername($user)
+    {
+        $I = $this;
+        $I->dontSee($user['UserRecord[username]']);
+    }
 }
