@@ -13,7 +13,9 @@ $user = $I->imagineUser();
 $I->fillUserDataForm($user);
 $I->submitUserDataForm();
 
-$I = new \Step\Acceptance\CRMUserSteps($scenario);
+$I->logout();
+
+$I = new \Step\Acceptance\CRMGuestSteps($scenario);
 $I->amGoingTo('login');
 
 $I->seeLink('login');
@@ -28,9 +30,7 @@ $I->dontSee('login');
 $I->seeUsername($user);
 $I->seeLink('logout');
 
-$I->amGoingTo('logout from arbitrary page');
-$I->amInQueryCustomerUi();
-$I->click('logout');
+$I->logout();
 
 $I->seeIamAtHomepage();
 $I->dontSeeUsername($user);

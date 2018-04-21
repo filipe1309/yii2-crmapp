@@ -18,6 +18,8 @@ $I->submitCustomerDataForm();
 
 $I->seeIAmInListCustomersUi();
 
+$I->logout();
+
 $I = new \Step\Acceptance\CRMUserSteps($scenario);
 $I->wantTo('query the customer info using his phone number');
 
