@@ -24,6 +24,13 @@ class AcceptanceTester extends \Codeception\Actor
     * Define custom actions here
     */
     
+    public function __construct($scenario)
+    {
+        parent::__construct($scenario);
+        
+        $this->skipCloud9PreviewPage();
+    }
+    
     public function skipCloud9PreviewPage()
     {
         // Skip Cloud9 Preview Page
