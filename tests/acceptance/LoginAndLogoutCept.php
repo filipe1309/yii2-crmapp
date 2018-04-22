@@ -2,8 +2,6 @@
 $I = new \Step\Acceptance\CRMUsersManagementSteps($scenario);
 $I->wantTo('check that login and logout work');
 
-$I->skipCloud9PreviewPage();
-
 $I->amGoingTo('Register new user');
 
 $I->amInListUsersUi();

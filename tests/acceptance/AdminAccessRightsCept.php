@@ -2,8 +2,6 @@
 $I = new \Step\Acceptance\CRMUsersManagementSteps($scenario);
 $I->wantTo('Check Admin-level access rights');
 
-$I->skipCloud9PreviewPage();
-
 // Customers
 
 $I->amOnPage('/customers/index');

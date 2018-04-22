@@ -2,8 +2,6 @@
 $I = new \Step\Acceptance\CRMOperatorSteps($scenario);
 $I->wantTo('add two different customers to database');
 
-$I->skipCloud9PreviewPage();
-
 $I->amInAddCustomerUi();
 $first_customer = $I->imagineCustomer();
 $I->fillCustomerDataForm($first_customer);

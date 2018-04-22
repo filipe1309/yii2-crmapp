@@ -2,8 +2,6 @@
 $I = new \Step\Acceptance\CRMServicesManagementSteps($scenario);
 $I->wantTo('delete existing Service record');
 
-$I->skipCloud9PreviewPage();
-
 $I->amInListServicesUi();
 $I->clickOnRegisterNewServiceButton();
 $I->seeIAmInAddServiceUi();

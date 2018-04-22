@@ -2,8 +2,6 @@
 $I = new \Step\Acceptance\CRMGuestSteps($scenario);
 $I->wantTo('Check Guest-level access rights');
 
-$I->skipCloud9PreviewPage();
-
 // Customers
 
 $I->amOnPage('/customers/index');

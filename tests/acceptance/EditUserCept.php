@@ -2,8 +2,6 @@
 $I = new \Step\Acceptance\CRMUsersManagementSteps($scenario);
 $I->wantTo('edit existing User record');
 
-$I->skipCloud9PreviewPage();
-
 $I->amInListUsersUi();
 $I->clickOnRegisterNewUserButton();
 $I->seeIAmInAddUserUi();

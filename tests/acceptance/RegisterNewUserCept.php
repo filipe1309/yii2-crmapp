@@ -2,8 +2,6 @@
 $I = new \Step\Acceptance\CRMUsersManagementSteps($scenario);
 $I->wantTo('register two Users in database');
 
-$I->skipCloud9PreviewPage();
-
 $I->amInListUsersUi();
 $I->clickOnRegisterNewUserButton();
 $I->seeIamInAddUserUi();

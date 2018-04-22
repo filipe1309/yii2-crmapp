@@ -2,8 +2,6 @@
 $I = new \Step\Acceptance\CRMOperatorSteps($scenario);
 $I->wantTo('Check Manager-level access rights in case of usual CRM Operator');
 
-$I->skipCloud9PreviewPage();
-
 // Customers
 
 $I->amOnPage('/customers/index');
