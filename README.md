@@ -1,5 +1,5 @@
 # yii2-crmapp
-This repository contains the project of a book called "Web Application Development with Yii 2 and PHP" by Mark Safronov, Jeffrey Winesett
+This repository contains the project of a book called "Web Application Development with Yii 2 and PHP" by Mark Safronov, Jeffrey Winesett  with some adaptations to allow the app to run wuth the new versions of Codeception and Yii2
 
 
 ## Commands
@@ -163,4 +163,43 @@ mysqldump crmapp > tests/_data/dump.sql
 
 cept generate:cept acceptance LoginAndLogout
 cept run acceptance LoginAndLogoutCept
+
+############
+# Chapter 6
+############
+
+// Add git tags to chapters
+git tag -a c6 -m"Chapter 6" f9db70aeac32ff
+git push origin --tags
+
+./yii migrate/create add_predefined_users
+./yii migrate
+
+# Yii2 RBAC DB migrations
+./yii migrate --migrationPath='@yii/rbac/migrations'
+
+# Ceate an database specific for the tests, 
+# to avoid regenerate the dump file after each migration
+## create database `crmapp_test` default character set utf8 default collate utf8_unicode_ci;
+
+# Role Hierarchy (Roles -> Routes)
+## Guest   -> site(index, login)
+## User    -> Guest + customers(index, query)
+## Manager -> User + customers(add) + services(index, view, create, update, delete)
+## Admin   -> Manager + users(index, view, create, update, delete)
+
+cept generate:test functional RoleHierarchy
+
+./yii migrate/create create_roles_for_predefined_users 
+./yii migrate
+
+# Create a new dump file to include the migration
+mysqldump crmapp > tests/_data/dump.sql
+
+# Test for access control from roles hierarchy
+cept generate:cept acceptance AdminAccessRights
+cept generate:cept acceptance ManagerAccessRights
+cept generate:cept acceptance UserAccessRights
+cept generate:cept acceptance GuestAccessRights
+
 ```
