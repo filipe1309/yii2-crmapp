@@ -31,7 +31,7 @@ class AcceptanceTester extends \Codeception\Actor
         $this->skipCloud9PreviewPage();
     }
     
-    public function skipCloud9PreviewPage()
+    private function skipCloud9PreviewPage()
     {
         // Skip Cloud9 Preview Page
         $I = $this;
