@@ -12,7 +12,12 @@ return [
             'allowedIPs' => ['*']
         ],
         'firstlevel' => [
-            'class' => 'app\utilities\FirstModule'
+            'class' => 'app\utilities\FirstModule',
+            'modules' => [
+                'secondlevel' => [
+                    'class' => 'app\utilities\SecondModule'
+                ]
+            ]
         ]
     ],
     'components' => [
