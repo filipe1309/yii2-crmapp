@@ -6,7 +6,12 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'bootstrap' => ['debug'],
     'modules' => [
+        'debug' => [
+            'class' => 'yii\debug\Module',
+            'allowedIPs' => ['*']
+        ],
         'gii' => [
             'class' => 'yii\gii\Module',
             'allowedIPs' => ['*']
