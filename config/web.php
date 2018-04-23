@@ -10,6 +10,9 @@ return [
         'gii' => [
             'class' => 'yii\gii\Module',
             'allowedIPs' => ['*']
+        ],
+        'firstlevel' => [
+            'class' => 'app\utilities\FirstModule'
         ]
     ],
     'components' => [
