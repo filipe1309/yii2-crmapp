@@ -1,0 +1,7 @@
+actor: ApiTester
+modules:
+    enabled:
+        - \Helper\Api
+        - REST:
+            depends: PhpBrowser
+            url: 'https://yii2-filipe1309.c9users.io/web_app_dev_yii2_php/yii2-crmapp/web'
