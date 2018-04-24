@@ -8,7 +8,6 @@
 actor: FunctionalTester
 modules:
     enabled:
-        - Db
         - Filesystem
         - Asserts
         - \Helper\Functional
