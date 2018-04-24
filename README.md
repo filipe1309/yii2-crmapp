@@ -202,4 +202,19 @@ cept generate:cept acceptance ManagerAccessRights
 cept generate:cept acceptance UserAccessRights
 cept generate:cept acceptance GuestAccessRights
 
+############
+# Chapter 7
+############
+
+// Add git tags to chapters
+git tag -a c7 -m"Chapter 7" 0fa066f588707e
+git push origin --tags
+
+composer require --prefer-dist yiisoft/yii2-debug "*"
+
+cept generate:suite api ApiTester
+cept build
+
+cept generate:test api ServicesListApi
+cept run api
 ```
