@@ -18,7 +18,7 @@ class ServicesListApiTest extends \Codeception\Test\Unit
     /** @test */
     public function testHasJsonEndpoint()
     {
-        $this->tester->sendGET('api/services/json');
+        $this->tester->sendGET('/api/services/json');
         $response = $this->tester->grabResponse();
         
         $this->tester->canSeeResponseCodeIs(200);
@@ -32,7 +32,7 @@ class ServicesListApiTest extends \Codeception\Test\Unit
         $expectedData[0] = $this->registerService();
         $expectedData[1] = $this->registerService();
         
-        $this->tester->sendGET('api/services/json');
+        $this->tester->sendGET('/api/services/json');
         
         $response = $this->tester->grabResponse();
         $responseData = \yii\helpers\Json::decode($response);
@@ -45,7 +45,7 @@ class ServicesListApiTest extends \Codeception\Test\Unit
     /** @test */
     public function testHasYamlEndpoint()
     {
-        $this->tester->sendGET('api/services/yaml');
+        $this->tester->sendGET('/api/services/yaml');
         $response = $this->tester->grabResponse();
         
         $this->tester->canSeeResponseCodeIs(200);
@@ -59,7 +59,7 @@ class ServicesListApiTest extends \Codeception\Test\Unit
         $expectedData[0] = $this->registerService();
         $expectedData[1] = $this->registerService();
         
-        $this->tester->sendGET('api/services/yaml');
+        $this->tester->sendGET('/api/services/yaml');
         
         $response = $this->tester->grabResponse();
         $responseData = \Symfony\Component\Yaml\Yaml::parse($response);
