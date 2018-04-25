@@ -65,6 +65,16 @@ return [
             'class' => 'yii\rbac\DbManager',
             'defaultRoles' => ['guest']
         ],
+        'mail' => [
+            'class' => yii\swiftmailer\Mailer::className(),
+            'messageConfig' => [
+                'charset' => 'UTF-8',
+                'from' => 'noreply@crmapp.me'
+            ],
+            'transport' => [
+                'class' => 'Swift_MailTransport'
+            ]
+        ]
     ],
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php')
 ];
