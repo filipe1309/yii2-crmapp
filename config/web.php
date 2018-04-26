@@ -74,6 +74,9 @@ return [
             'transport' => [
                 'class' => 'Swift_MailTransport'
             ]
+        ],
+        'errorHandler' => [
+            'errorAction' => 'site/error'
         ]
     ],
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php')
