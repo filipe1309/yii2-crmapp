@@ -10,7 +10,7 @@ use app\models\user\LoginForm;
 
 class SiteController extends Controller
 {
-    public function actions()
+    /*public function actions()
     {
         return [
             // Create an action to error route
@@ -21,7 +21,7 @@ class SiteController extends Controller
             // if not yii2 will use the error defult view
             'error' => ['class' => 'yii\web\ErrorAction']
         ];
-    }
+    }*/
     
     public function actionIndex()
     {
@@ -77,12 +77,12 @@ class SiteController extends Controller
         return $result;
     }
     
+    /*
     public function actionShowError()
     {
         throw new \yii\base\ErrorException("Custom error action");
     }
     
-    /*
     // Create an action to error route
     // It's equivalent to use 'error' in actions method
     public function actionError()
