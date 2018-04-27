@@ -35,6 +35,19 @@ class ServicesController extends Controller
                         'allow' => true
                     ]
                 ]
+            ],
+            'pageCache' => [
+                'class' => 'yii\filters\PageCache',
+                'cache' => 'mycache',
+                'only' => ['cache-test'],
+                'duration' => 60,
+                'variations' => [
+                    Yii::$app->language
+                ],
+                'dependency' => [
+                    'class' => 'yii\caching\DbDependency',
+                    'sql' => 'SELECT * FROM service'
+                ]
             ]
         ];
     }
@@ -133,5 +146,16 @@ class ServicesController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    
+    public function actionCacheTest()
+    {
+        $searchModel = new ServiceSearchModel();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('cache_test', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 }

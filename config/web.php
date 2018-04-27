@@ -78,6 +78,11 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error'
         ]*/
+        ,
+        'mycache' => [
+            'class' => 'yii\caching\FileCache',
+            'cachePath' => '@webroot/mycache'
+        ]
     ],
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php')
 ];
