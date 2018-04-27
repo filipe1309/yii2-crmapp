@@ -43,3 +43,5 @@ php_errors.log
 db_config.ini
 
 web/mycache/
+
+web/compiled-assets/*
