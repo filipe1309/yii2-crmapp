@@ -1,5 +1,5 @@
 # yii2-crmapp
-This repository contains the project of a book called "Web Application Development with Yii 2 and PHP" by Mark Safronov, Jeffrey Winesett  with some adaptations to allow the app to run wuth the new versions of Codeception and Yii2
+This repository contains the project of a book called "Web Application Development with Yii 2 and PHP" by Mark Safronov, Jeffrey Winesett  with some adaptations to allow the app to run with the new versions of Codeception and Yii2
 
 
 ## Commands
@@ -49,7 +49,7 @@ cept run
 # Yii2
 composer require "yiisoft/yii2:*"
 
-# Yii2 - Create mandatory folders for yii2 
+# Yii2 - Create mandatory folders for yii2
 mkdir runtime
 mkdir web/assets
 
@@ -217,4 +217,21 @@ cept build
 
 cept generate:test api ServicesListApi
 cept run api
+
+############
+# Chapter 8
+############
+
+// Add git tags to chapters
+git tag -a c8 -m"Chapter 8" c08efff7168b2a26f
+git push origin --tags
+
+composer require --prefer-dist yiisoft/yii2-swiftmailer "*"
+
+./yii asset/template assets/compression/config.php
+
+mkdir web/compiled-assets/js
+mkdir web/compiled-assets/css
+
+./yii asset assets/compression/config.php config/assets_compressed.php
 ```
