@@ -82,7 +82,10 @@ return [
         'mycache' => [
             'class' => 'yii\caching\FileCache',
             'cachePath' => '@webroot/mycache'
-        ]
+        ],
+        'assetManager' => [
+            'bundles' => (require __DIR__ . '/assets_compressed.php')
+        ],
     ],
     'extensions' => require(__DIR__ . '/../vendor/yiisoft/extensions.php')
 ];
