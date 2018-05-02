@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\log\Logger;
 use app\models\user\LoginForm;
+use app\models\user\UserRecord;
 
 class SiteController extends Controller
 {
@@ -93,4 +94,49 @@ class SiteController extends Controller
         }
     }
     */
+    
+    public function actionBehavior()
+    {
+        $user = new UserRecord();
+        $user->prop1 = 'foo';
+        $behavior = $user->getBehavior('myBehavior');
+        $behaviors = $user->getBehaviors();
+        return $behavior::className() . ': ' . $user->prop1 . $user->foo();
+        
+        /*
+        // attach a behavior object
+        $component->attachBehavior('myBehavior1', new MyBehavior);
+        
+        // attach a behavior class
+        $component->attachBehavior('myBehavior2', MyBehavior::className());
+        
+        // attach a configuration array
+        $component->attachBehavior('myBehavior3', [
+            'class' => MyBehavior::className(),
+            'prop1' => 'value1',
+            'prop2' => 'value2',
+        ]);
+        
+        // attach multiple behaviors
+        $component->attachBehaviors([
+            'myBehavior1' => new MyBehavior,  // a named behavior
+            MyBehavior::className(),          // an anonymous behavior
+        ]);
+        
+        // In configuration
+        [
+            'as myBehavior2' => MyBehavior::className(),
+        
+            'as myBehavior3' => [
+                'class' => MyBehavior::className(),
+                'prop1' => 'value1',
+                'prop2' => 'value2',
+            ],
+        ]
+        
+        $component->detachBehavior('myBehavior1');
+        $component->detachBehaviors();
+        
+        */
+    }
 }

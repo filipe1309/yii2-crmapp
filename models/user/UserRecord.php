@@ -6,7 +6,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
-
+use app\components\MyBehavior;
 
 /**
  * This is the model class for table "user".
@@ -45,6 +45,33 @@ class UserRecord extends ActiveRecord implements IdentityInterface
             'id' => 'ID',
             'username' => 'Username',
             'password' => 'Password',
+        ];
+    }
+    
+        public function behaviors()
+    {
+        return [
+            // anonymous behavior, behavior class name only
+            //MyBehavior::className(),
+
+            'myBehavior' => MyBehavior::className(),
+
+            /*// named behavior, behavior class name only
+            'myBehavior2' => MyBehavior::className(),
+
+            // anonymous behavior, configuration array
+            [
+                'class' => MyBehavior::className(),
+                'prop1' => 'value1',
+                'prop2' => 'value2',
+            ],
+
+            // named behavior, configuration array
+            'myBehavior4' => [
+                'class' => MyBehavior::className(),
+                'prop1' => 'value1',
+                'prop2' => 'value2',
+            ]*/
         ];
     }
     
