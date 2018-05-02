@@ -233,5 +233,21 @@ composer require --prefer-dist yiisoft/yii2-swiftmailer "*"
 mkdir web/compiled-assets/js
 mkdir web/compiled-assets/css
 
+// Generate the compressed assets files
 ./yii asset assets/compression/config.php config/assets_compressed.php
+
+############
+# Chapter 9
+############
+
+// Add git tags to chapters
+git tag -a c9 -m"Chapter 9" 7f1d24bae8e64a26ebf8
+git push origin --tags
+
+mkdir extensions && cd $_
+> AppInfoController.php
+
+git tag 1.0.0
+$ php composer.phar require "malicious/app-info:*"
+
 ```
