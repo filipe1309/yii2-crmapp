@@ -5,6 +5,13 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-debug": "*",
-        "yiisoft/yii2-swiftmailer": "*"
-    }
+        "yiisoft/yii2-swiftmailer": "*",
+        "malicious/app-info": "1.0.0"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "/home/ubuntu/workspace/yii2-malicious/"
+        }
+    ]
 }
