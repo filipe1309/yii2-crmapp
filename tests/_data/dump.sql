@@ -138,8 +138,16 @@ CREATE TABLE `customer` (
   `name` varchar(255) DEFAULT NULL,
   `birth_date` date DEFAULT NULL,
   `notes` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` int(11) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `customer_created_by` (`created_by`),
+  KEY `customer_updated_by` (`updated_by`),
+  CONSTRAINT `customer_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`id`),
+  CONSTRAINT `customer_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,7 +179,7 @@ CREATE TABLE `migration` (
 
 LOCK TABLES `migration` WRITE;
 /*!40000 ALTER TABLE `migration` DISABLE KEYS */;
-INSERT INTO `migration` VALUES ('m000000_000000_base',1524166243),('m140506_102106_rbac_init',1524166268),('m170907_052038_rbac_add_index_on_auth_assignment_user_id',1524166268),('m180322_172400_init_customer_table',1524166246),('m180322_173800_init_phone_table',1524166246),('m180404_162646_init_service_table',1524166246),('m180413_164828_init_user_table',1524166246),('m180417_122504_add_auth_key_to_user',1524166246),('m180418_183529_add_predefined_users',1524166248),('m180419_204152_create_roles_for_predefined_users',1524229484);
+INSERT INTO `migration` VALUES ('m000000_000000_base',1524166243),('m140506_102106_rbac_init',1524166268),('m170907_052038_rbac_add_index_on_auth_assignment_user_id',1524166268),('m180322_172400_init_customer_table',1524166246),('m180322_173800_init_phone_table',1524166246),('m180404_162646_init_service_table',1524166246),('m180413_164828_init_user_table',1524166246),('m180417_122504_add_auth_key_to_user',1524166246),('m180418_183529_add_predefined_users',1524166248),('m180419_204152_create_roles_for_predefined_users',1524229484),('m180502_144933_add_audit_fields_to_customer',1525280247);
 /*!40000 ALTER TABLE `migration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-20 13:07:10
+-- Dump completed on 2018-05-02 16:58:15
