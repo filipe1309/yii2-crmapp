@@ -10,6 +10,11 @@ class CustomerAuditTest extends \Codeception\Test\Unit
      */
     protected $tester;
     
+    protected function _after()
+    {
+        Yii::$app->user->logout();
+    }
+    
     /** @test */
     public function testNewCustomerHasAuditInfo()
     {
@@ -34,6 +39,36 @@ class CustomerAuditTest extends \Codeception\Test\Unit
         $this->assertEquals($user->id, $saved->created_by);
         $this->assertEquals($saved->created_at, $saved->updated_at);
         $this->assertEquals($saved->created_by, $saved->updated_by);
+    }
+    
+    /** @test */
+    public function testCustomerRecordRemembersUpdateDatetimeAndUser()
+    {
+        // Dependencies
+        $first_identity = UserRecord::findOne(['username' => 'RobAdmin']);
+        $second_identity = UserRecord::findOne(['username' => 'AnnieManager']);
+        $user = Yii::$app->user;
+        
+        // Given
+        $user->login($first_identity);
+        $record = new CustomerRecord;
+        $record->name = 'John';
+        $record->save();
+        
+        $initial_updated_at = $record->updated_at;
+        $initial_updated_by = $record->updated_by;
+        
+        // When
+        $user->logout();
+        sleep(1);
+        $user->login($second_identity);
+        $record->name = 'Bill';
+        $record->save();
+        
+        // Then
+        $this->assertGreterThan($initial_updated_at, $record->updated_at);
+        $this->assertNotEquals($initial_updated_by, $record->updated_by);
+        $this->assertEquals($user->id, $record->updated_by);
     }
     
     /** @return CustomerRecord */
