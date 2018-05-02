@@ -20,4 +20,12 @@ class CustomerRecord extends ActiveRecord
             ['notes', 'safe']
         ];
     }
+    
+    public function behaviors()
+    {
+        return [
+            'timestamp' => \yii\behaviors\TimestampBehavior::className(),
+            'blame' => \yii\behaviors\BlameableBehavior::className()
+        ];
+    }
 }
