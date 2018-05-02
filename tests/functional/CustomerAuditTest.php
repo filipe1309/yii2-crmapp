@@ -66,7 +66,7 @@ class CustomerAuditTest extends \Codeception\Test\Unit
         $record->save();
         
         // Then
-        $this->assertGreterThan($initial_updated_at, $record->updated_at);
+        $this->assertGreaterThan($initial_updated_at, $record->updated_at);
         $this->assertNotEquals($initial_updated_by, $record->updated_by);
         $this->assertEquals($user->id, $record->updated_by);
     }
@@ -83,6 +83,6 @@ class CustomerAuditTest extends \Codeception\Test\Unit
     private function assertBetween($before, $value, $after)
     {
         $this->assertLessThanOrEqual($before, $value);
-        $this->assertGreterThanOrEqual($value, $after);
+        $this->assertGreaterThanOrEqual($value, $after);
     }
 }
