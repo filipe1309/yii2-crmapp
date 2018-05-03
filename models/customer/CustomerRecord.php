@@ -28,4 +28,19 @@ class CustomerRecord extends ActiveRecord
             'blame' => \yii\behaviors\BlameableBehavior::className()
         ];
     }
+    
+    public function getPhones()
+    {
+        return $this->hasMany(PhoneRecord::className(), ['customer_id', 'id']);
+    }
+    
+    public function getAddresses()
+    {
+        return $this->hasMany(AddressRecord::className(), ['customer_id', 'id']);
+    }
+    
+    public function getEmails()
+    {
+        return $this->hasMany(EmailRecord::className(), ['customer_id', 'id']);
+    }
 }
