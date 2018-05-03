@@ -81,7 +81,7 @@ cept generate:stepobject acceptance CRMGuestSteps
 cept generate:cept acceptance EditService
 cept generate:cept acceptance DeleteService
 
-// Add git tags to chapters
+# Add git tags to chapters
 git tag -a c2 -m"Chapter 2" 929021e9535eaf1ac
 git tag -a c3 -m"Chapter 3" 24c5c5b7bd6d7e355d
 git push origin --tags
@@ -125,7 +125,7 @@ cept build
 cept run acceptance DocumentationCept
 # cept run tests/acceptance/DocumentationCept
 
-// Add git tags to chapters
+# Add git tags to chapters
 git tag -a c4 -m"Chapter 4" a8da6a4f16402b40
 git push origin --tags
 
@@ -133,7 +133,7 @@ git push origin --tags
 # Chapter 5
 ############
 
-// Add git tags to chapters
+# Add git tags to chapters
 git tag -a c5 -m"Chapter 5" acb3ea19c59369
 git push origin --tags
 
@@ -168,7 +168,7 @@ cept run acceptance LoginAndLogoutCept
 # Chapter 6
 ############
 
-// Add git tags to chapters
+# Add git tags to chapters
 git tag -a c6 -m"Chapter 6" f9db70aeac32ff
 git push origin --tags
 
@@ -206,7 +206,7 @@ cept generate:cept acceptance GuestAccessRights
 # Chapter 7
 ############
 
-// Add git tags to chapters
+# Add git tags to chapters
 git tag -a c7 -m"Chapter 7" 0fa066f588707e
 git push origin --tags
 
@@ -222,7 +222,7 @@ cept run api
 # Chapter 8
 ############
 
-// Add git tags to chapters
+# Add git tags to chapters
 git tag -a c8 -m"Chapter 8" c08efff7168b2a26f
 git push origin --tags
 
@@ -233,27 +233,27 @@ composer require --prefer-dist yiisoft/yii2-swiftmailer "*"
 mkdir web/compiled-assets/js
 mkdir web/compiled-assets/css
 
-// Generate the compressed assets files
+# Generate the compressed assets files
 ./yii asset assets/compression/config.php config/assets_compressed.php
 
 ############
 # Chapter 9
 ############
 
-// Add git tags to chapters
+# Add git tags to chapters
 git tag -a c9 -m"Chapter 9" 7f1d24bae8e64a26ebf8
 git push origin --tags
 
 mkdir extensions && cd $_
 > AppInfoController.php
 
-// In Malicious extension folder
+# In Malicious extension folder
 git init
 git commit -a -m "Added the Composer manifest file to repo"
 git tag 1.0.0
 
-// In CRMApp folder
-// http://yii2-filipe1309.c9users.io/web_app_dev_yii2_php/yii2-crmapp/web/app-info/configuration
+# In CRMApp folder
+# http://yii2-filipe1309.c9users.io/web_app_dev_yii2_php/yii2-crmapp/web/app-info/configuration
 composer require "malicious/app-info:*"
 
 ############
@@ -261,7 +261,7 @@ composer require "malicious/app-info:*"
 ## Events and Behaviors
 ############
 
-// Add git tags to chapters
+# Add git tags to chapters
 git tag -a c10 -m"Chapter 10" f28b8e88b38c342f
 git push origin --tags
 
@@ -269,11 +269,39 @@ cept generate:test functional CustomerAudit
 cept run functional CustomerAuditTest
 
 ./yii migrate/create add_audit_fields_to_customer
+./yii migrate
 
 # Create a new dump file to include the migration
 mysqldump crmapp > tests/_data/dump.sql
 
-// Custom behavior
-// http://yii2-filipe1309.c9users.io/web_app_dev_yii2_php/yii2-crmapp/web/site/behavior
+# Custom behavior
+# http://yii2-filipe1309.c9users.io/web_app_dev_yii2_php/yii2-crmapp/web/site/behavior
 
+# Custom event
+# http://yii2-filipe1309.c9users.io/web_app_dev_yii2_php/yii2-crmapp/web/site/event
+
+############
+# Chapter 11
+## The Grid
+############
+
+# Add git tags to chapters
+git tag -a c11 -m"Chapter 11" b36f9172361a2a7
+git push origin --tags
+
+./yii migrate/create add_address_table
+./yii migrate
+
+# Create a new dump file to include the migration
+mysqldump crmapp > tests/_data/dump.sql
+
+./yii migrate/create add_email_table
+./yii migrate
+
+# Create a new dump file to include the migration
+mysqldump crmapp > tests/_data/dump.sql
+ 
 ```
+
+# TODO
+⋅⋅ *Make the tests run in a separate db (crmapp_test)
