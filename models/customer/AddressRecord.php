@@ -19,7 +19,7 @@ use Yii;
  * @property string $postal_code
  * @property int $customer_id
  *
- * @property Customer $customer
+ * @property CustomerRecord $customer
  */
 class AddressRecord extends \yii\db\ActiveRecord
 {
@@ -40,7 +40,7 @@ class AddressRecord extends \yii\db\ActiveRecord
             [['customer_id'], 'required'],
             [['customer_id'], 'integer'],
             [['purpose', 'country', 'state', 'city', 'street', 'building', 'apartment', 'received_name', 'postal_code'], 'string', 'max' => 255],
-            [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'id']],
+            [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => CustomerRecord::className(), 'targetAttribute' => ['customer_id' => 'id']],
         ];
     }
 
@@ -69,6 +69,6 @@ class AddressRecord extends \yii\db\ActiveRecord
      */
     public function getCustomer()
     {
-        return $this->hasOne(Customer::className(), ['id' => 'customer_id']);
+        return $this->hasOne(CustomerRecord::className(), ['id' => 'customer_id']);
     }
 }
