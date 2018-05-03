@@ -247,7 +247,33 @@ git push origin --tags
 mkdir extensions && cd $_
 > AppInfoController.php
 
+// In Malicious extension folder
+git init
+git commit -a -m "Added the Composer manifest file to repo"
 git tag 1.0.0
-$ php composer.phar require "malicious/app-info:*"
+
+// In CRMApp folder
+// http://yii2-filipe1309.c9users.io/web_app_dev_yii2_php/yii2-crmapp/web/app-info/configuration
+composer require "malicious/app-info:*"
+
+############
+# Chapter 10
+## Events and Behaviors
+############
+
+// Add git tags to chapters
+git tag -a c10 -m"Chapter 10" f28b8e88b38c342f
+git push origin --tags
+
+cept generate:test functional CustomerAudit
+cept run functional CustomerAuditTest
+
+./yii migrate/create add_audit_fields_to_customer
+
+# Create a new dump file to include the migration
+mysqldump crmapp > tests/_data/dump.sql
+
+// Custom behavior
+// http://yii2-filipe1309.c9users.io/web_app_dev_yii2_php/yii2-crmapp/web/site/behavior
 
 ```
