@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "address".
  *
- * @property string $id
+ * @property int $id
  * @property string $purpose
  * @property string $country
  * @property string $state
@@ -39,7 +39,7 @@ class AddressRecord extends \yii\db\ActiveRecord
         return [
             [['customer_id'], 'required'],
             [['customer_id'], 'integer'],
-            [['id', 'purpose', 'country', 'state', 'city', 'street', 'building', 'apartment', 'received_name', 'postal_code'], 'string', 'max' => 255],
+            [['purpose', 'country', 'state', 'city', 'street', 'building', 'apartment', 'received_name', 'postal_code'], 'string', 'max' => 255],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'id']],
         ];
     }
