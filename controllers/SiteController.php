@@ -139,4 +139,15 @@ class SiteController extends Controller
         
         */
     }
+    
+    public function actionEvent()
+    {
+        $myEvent = new \app\components\MyEvent;
+        $myEvent->on(\app\components\MyEvent::EVENT_HELLO, function ($event) {
+            echo '<pre>';
+            var_dump($event);
+        }, 'abc');
+        
+        $myEvent->triggerEventHello();
+    }
 }
