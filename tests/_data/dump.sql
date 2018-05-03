@@ -37,7 +37,7 @@ CREATE TABLE `address` (
   PRIMARY KEY (`id`),
   KEY `customer_address` (`customer_id`),
   CONSTRAINT `customer_address` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,6 +46,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
+INSERT INTO `address` VALUES (1,'None 1','','','','','','','','',1),(2,'None 2','Brazil','ParanÃ¡','Curitiba','Rua teste 1','3','2','John','987654321',1),(3,'None 3','Canada','British Columbia','Vancouver','4th street','2','1','VA','111111111',1);
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +182,7 @@ CREATE TABLE `customer` (
   KEY `customer_updated_by` (`updated_by`),
   CONSTRAINT `customer_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`),
   CONSTRAINT `customer_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,6 +191,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (1,'Customer c11','2001-12-01','This is a customer with many addresses, emails and phones',1525371183,3,1525371183,3);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +210,7 @@ CREATE TABLE `email` (
   PRIMARY KEY (`id`),
   KEY `customer_email` (`customer_id`),
   CONSTRAINT `customer_email` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,6 +219,7 @@ CREATE TABLE `email` (
 
 LOCK TABLES `email` WRITE;
 /*!40000 ALTER TABLE `email` DISABLE KEYS */;
+INSERT INTO `email` VALUES (1,'None 1','test@test.com',1),(2,'None 2','test2@test2.com',1),(3,'None 3','test3@test3.com',1);
 /*!40000 ALTER TABLE `email` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,9 +259,9 @@ CREATE TABLE `phone` (
   `customer_id` int(11) DEFAULT NULL,
   `number` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `customer_id` (`customer_id`),
+  KEY `customer_phone_numbers` (`customer_id`),
   CONSTRAINT `customer_phone_numbers` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,6 +270,7 @@ CREATE TABLE `phone` (
 
 LOCK TABLES `phone` WRITE;
 /*!40000 ALTER TABLE `phone` DISABLE KEYS */;
+INSERT INTO `phone` VALUES (1,1,'123456789'),(3,1,'987654321'),(4,1,'111111111');
 /*!40000 ALTER TABLE `phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,4 +336,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-03 14:38:21
+-- Dump completed on 2018-05-03 18:39:20
