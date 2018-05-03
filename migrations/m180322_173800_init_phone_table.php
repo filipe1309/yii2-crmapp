@@ -16,7 +16,7 @@ class m180322_173800_init_phone_table extends Migration
             'phone',
             [
                 'id' => 'pk',
-                'customer_id' => 'int unique',
+                'customer_id' => 'int',
                 'number' => 'string',
             ]
         );
