@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `address` (
-  `id` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `purpose` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
@@ -34,6 +34,7 @@ CREATE TABLE `address` (
   `received_name` varchar(255) DEFAULT NULL,
   `postal_code` varchar(255) DEFAULT NULL,
   `customer_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `customer_address` (`customer_id`),
   CONSTRAINT `customer_address` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -212,7 +213,7 @@ CREATE TABLE `migration` (
 
 LOCK TABLES `migration` WRITE;
 /*!40000 ALTER TABLE `migration` DISABLE KEYS */;
-INSERT INTO `migration` VALUES ('m000000_000000_base',1524166243),('m140506_102106_rbac_init',1524166268),('m170907_052038_rbac_add_index_on_auth_assignment_user_id',1524166268),('m180322_172400_init_customer_table',1524166246),('m180322_173800_init_phone_table',1524166246),('m180404_162646_init_service_table',1524166246),('m180413_164828_init_user_table',1524166246),('m180417_122504_add_auth_key_to_user',1524166246),('m180418_183529_add_predefined_users',1524166248),('m180419_204152_create_roles_for_predefined_users',1524229484),('m180502_144933_add_audit_fields_to_customer',1525280247),('m180503_134705_add_address_table',1525355694);
+INSERT INTO `migration` VALUES ('m000000_000000_base',1524166243),('m140506_102106_rbac_init',1524166268),('m170907_052038_rbac_add_index_on_auth_assignment_user_id',1524166268),('m180322_172400_init_customer_table',1524166246),('m180322_173800_init_phone_table',1524166246),('m180404_162646_init_service_table',1524166246),('m180413_164828_init_user_table',1524166246),('m180417_122504_add_auth_key_to_user',1524166246),('m180418_183529_add_predefined_users',1524166248),('m180419_204152_create_roles_for_predefined_users',1524229484),('m180502_144933_add_audit_fields_to_customer',1525280247),('m180503_134705_add_address_table',1525357024);
 /*!40000 ALTER TABLE `migration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -304,4 +305,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-03 13:55:03
+-- Dump completed on 2018-05-03 14:17:51
