@@ -15,7 +15,7 @@ class m180503_134705_add_address_table extends Migration
         $this->createTable(
             'address',
             [
-                'id' => 'string',
+                'id' => 'pk',
                 'purpose' => 'string',
                 'country' => 'string',
                 'state' => 'string',
