@@ -25,11 +25,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
-            'birth_date',
-            'notes:ntext',
-            'created_at',
+            [
+                'attribute' => 'birth_date',
+                'format' => ['date', 'php:jS M, Y']
+            ],
+            'id',
+            //'notes:ntext',
+            //'created_at',
             //'created_by',
             //'updated_at',
             //'updated_by',
