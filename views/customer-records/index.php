@@ -70,7 +70,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'updated_at',
             //'updated_by',
 
-            ['class' => 'app\utilities\AuditColumn'],
+            [
+                'class' => 'app\utilities\AuditColumn',
+                'attribute' => 'id'
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
