@@ -150,4 +150,9 @@ class SiteController extends Controller
         
         $myEvent->triggerEventHello();
     }
+    
+    public function actionWidgets()
+    {
+        return $this->render('widgets');
+    }
 }
