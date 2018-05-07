@@ -300,7 +300,12 @@ mysqldump crmapp > tests/_data/dump.sql
 
 # Create a new dump file to include the migration
 mysqldump crmapp > tests/_data/dump.sql
- 
+
+
+# Generate the compressed assets files after create a new asset bundle
+./yii asset assets/compression/config.php config/assets_compressed.php
+
+
 ```
 
 # TODO
