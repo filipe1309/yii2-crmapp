@@ -30,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'birth_date',
                 'format' => ['date', 'php:jS M, Y']
             ],
-            'id',
             [
                 'label' => 'Addresses',
                 'format' => 'paragraphs',
@@ -64,6 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $result;
                 }
             ],
+            //'id',
             //'notes:ntext',
             //'created_at',
             //'created_by',
