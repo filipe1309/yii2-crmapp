@@ -1,6 +1,7 @@
 <?php
 use app\components\MyWidget;
 use app\components\MyWidgetBeginEnd;
+use app\components\MyWidgetView;
 ?>
 
 <h1>MyWidget using ::widget() </h1>
@@ -16,3 +17,6 @@ use app\components\MyWidgetBeginEnd;
 content that may contain <tag>'s
 
 <?php MyWidgetBeginEnd::end(); ?>
+
+<h1>MyWidgetView using it's own view file </h1>
+<?= MyWidgetView::widget(); ?>
