@@ -63,6 +63,12 @@ class CustomerRecordSearch extends CustomerRecord
             'desc' => ['email.address' => SORT_DESC]
         ];
 
+        $query->joinWith('phones');
+        $dataProvider->sort->attributes['phone'] = [
+            'asc' => ['phone.number' => SORT_ASC],
+            'desc' => ['phone.number' => SORT_DESC]
+        ];
+
         $this->load($params);
 
         if (!$this->validate()) {

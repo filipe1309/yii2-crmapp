@@ -55,6 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
+                'attribute' => 'phone',
                 'label' => 'Phones',
                 'format' => 'paragraphs',
                 'value' => function($model) {
