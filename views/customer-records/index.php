@@ -31,6 +31,39 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => ['date', 'php:jS M, Y']
             ],
             'id',
+            [
+                'label' => 'Addresses',
+                'format' => 'paragraphs',
+                'value' => function($model) {
+                    $result = '';
+                    foreach($model->addresses as $address) {
+                        $result .= $address->fullAddress . "\n\n";
+                    }
+                    return $result;
+                }
+            ],
+            [
+                'label' => 'Emails',
+                'format' => 'paragraphs',
+                'value' => function($model) {
+                    $result = '';
+                    foreach($model->emails as $email) {
+                        $result .= $email->address . "\n\n";
+                    }
+                    return $result;
+                }
+            ],
+            [
+                'label' => 'Phones',
+                'format' => 'paragraphs',
+                'value' => function($model) {
+                    $result = '';
+                    foreach($model->phones as $phone) {
+                        $result .= $phone->number . "\n\n";
+                    }
+                    return $result;
+                }
+            ],
             //'notes:ntext',
             //'created_at',
             //'created_by',
