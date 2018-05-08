@@ -36,7 +36,10 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'customer/<id:\d+>' => 'customer-records/view'
+                'customer/<id:\d+>' => 'customer-records/view',
+                [
+                    'class' => 'app\utilities\UsernameUrlRule'
+                ]
             ]
         ],
         'db' => require(__DIR__ . '/db.php'),
