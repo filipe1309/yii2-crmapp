@@ -338,7 +338,7 @@ git push origin --tags
 ############
 
 # Add git tags to chapters
-git tag -a aA -m"Appendix A"
+git tag -a aA -m"Appendix A" 4bcd74248e5f8dfd64d4a5bb0
 git push origin --tags
 
 # Checks the versions of Guest Additions plugins of Virtualbox
