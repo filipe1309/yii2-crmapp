@@ -305,8 +305,35 @@ mysqldump crmapp > tests/_data/dump.sql
 # Generate the compressed assets files after create a new asset bundle
 ./yii asset assets/compression/config.php config/assets_compressed.php
 
+############
+# Chapter 12
+## Route Management
+############
+
+# Add git tags to chapters
+git tag -a c12 -m"Chapter 12" b8063b44a2560bcaaa0
+git push origin --tags
+
+############
+# Chapter 13
+## Collaborative Work
+############
+
+# Add git tags to chapters
+git tag -a c13 -m"Chapter 13" ed9c9b53ff20181
+git push origin --tags
+
+./yii hash 1234
+./yii hash/index 1234
+
+./yii hash some string with spaces
+./yii hash "some string with spaces"
+./yii hash "some string with spaces" --interactive=0
+
+./yii migrate/create new_migration_template_test
 
 ```
 
 # TODO
-⋅⋅ *Make the tests run in a separate db (crmapp_test)
+⋅⋅* *Make the tests run in a separate db (crmapp_test)
+controllerMap.db
