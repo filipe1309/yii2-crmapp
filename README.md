@@ -332,6 +332,28 @@ git push origin --tags
 
 ./yii migrate/create new_migration_template_test
 
+############
+# Appendix A
+## Deployment Setup with Vagrant
+############
+
+# Add git tags to chapters
+git tag -a aA -m"Appendix A"
+git push origin --tags
+
+# Checks the versions of Guest Additions plugins of Virtualbox
+vagrant plugin install vagrant-vbguest
+
+vagrant up
+vagrant halt
+vagrant provision
+vagrant destroy
+
+vagrant ssh
+cd /vagrant
+mysql -u root -pmysqlroot crmapp
+
+
 ```
 
 # TODO
