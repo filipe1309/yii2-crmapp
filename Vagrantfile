@@ -8,9 +8,9 @@ config.vm.box = "hashicorp/precise64"
 # config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
 # What to do with the base box as initial setup
-config.vm.provision :shell, :path => "bootstrap/01-prepareprecise64.sh"
-config.vm.provision :shell, :path => "bootstrap/02-configure-appfor-precise64.sh"
-config.vm.provision :shell, :path => "bootstrap/03-prepareapplication.sh"
+config.vm.provision :shell, :path => "bootstrap/01-prepare-precise64.sh"
+config.vm.provision :shell, :path => "bootstrap/02-configure-app-for-precise64.sh"
+config.vm.provision :shell, :path => "bootstrap/03-configure-app.sh"
 
 # How to expose the web application inside the box:
 # publish port 80 at the virtual machine as port 8888 at the host machine.
