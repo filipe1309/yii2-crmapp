@@ -1,12 +1,7 @@
 <?php
-return [
-    'id' => 'crmapp-console',
-    'basePath' => dirname(__DIR__),
-    'components' => [
-        'db' => require(__DIR__ . '/db.php'),
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-            'defaultRoles' => ['guest'],
-        ],
-    ],
-];
+
+return \yii\helpers\ArrayHelper::merge(
+    (require __DIR__ . '/overrides/base.php'),
+    (require __DIR__ . '/overrides/console_base.php'),
+    (require __DIR__ . '/overrides/local.php')
+);
