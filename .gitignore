@@ -45,3 +45,10 @@ db_config.ini
 web/mycache/
 
 web/compiled-assets/*
+
+runtime/
+.vagrant/
+web/assets/
+config/db.php
+config/test.php
+config/overrides/local.php
