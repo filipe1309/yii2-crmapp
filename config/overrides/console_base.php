@@ -2,6 +2,7 @@
 return [
     'id' => 'crmapp-console',
     //'basePath' => dirname(__DIR__),
+    'controllerNamespace' => 'app\commands',
     'components' => [
         //'db' => require(__DIR__ . '/db.php'),
         'authManager' => [
