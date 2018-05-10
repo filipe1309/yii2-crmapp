@@ -353,7 +353,14 @@ vagrant ssh
 cd /vagrant
 mysql -u root -pmysqlroot crmapp
 
+############
+# Appendix B
+## The Active Form Primer
+############
 
+# Add git tags to chapters
+git tag -a aB -m"Appendix B" dcee74eaf9a5c
+git push origin --tags
 ```
 
 # TODO
