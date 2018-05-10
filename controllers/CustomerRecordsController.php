@@ -84,6 +84,7 @@ class CustomerRecordsController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->storeReturnUrl();
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -123,5 +124,10 @@ class CustomerRecordsController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    
+    private function storeReturnUrl()
+    {
+        Yii::$app->user->returnUrl = Yii::$app->request->url;
     }
 }

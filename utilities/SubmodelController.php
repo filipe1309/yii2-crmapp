@@ -59,7 +59,7 @@ class SubmodelController extends Controller
         $model->{$this->relationAttribute} = $relation_id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save())
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->goBack();
 
         return $this->render('create', compact('model'));
     }
@@ -76,7 +76,7 @@ class SubmodelController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save())
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->goBack();
 
         return $this->render('update', compact('model'));
     }
@@ -92,7 +92,7 @@ class SubmodelController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->goBack();
     }
 
     /**
