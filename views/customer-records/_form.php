@@ -46,11 +46,20 @@ use yii\bootstrap\ActiveForm;
                 'pagination' => false
             ]),
             'columns' => [
+                [
+                    'label' => 'Address',
+                    'value' => function ($model) {
+                        return implode(
+                            ', ',
+                            array_filter(
+                                $model->getAttributes(
+                                    ['country', 'city', 'received_name', 'postal_code']
+                                )
+                            )
+                        );
+                    }
+                ],
                 'purpose',
-                'country',
-                'city',
-                'received_name',
-                'postal_code',
                 [
                     'class' => 'yii\grid\ActionColumn',
                     'controller' => 'addresses',
