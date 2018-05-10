@@ -30,8 +30,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'postal_code')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'customer_id')->textInput() ?>
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
