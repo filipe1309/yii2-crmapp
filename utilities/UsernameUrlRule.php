@@ -9,7 +9,7 @@ class UsernameUrlRule implements UrlRuleInterface
 {
     public function parseRequest($manager, $request)
     {
-        $maybeUsername = $request->pathInfo;
+        $maybeUsername = str_replace('users/view/', '', $request->pathInfo);
 
         $user = UserRecord::findOne(['username' => $maybeUsername]);
         if (!$user)
@@ -29,6 +29,6 @@ class UsernameUrlRule implements UrlRuleInterface
         if (!$user)
             return false;
 
-        return "{$user->username}";
+        return "users/view/{$user->username}";
     }
 }
