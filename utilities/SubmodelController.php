@@ -15,7 +15,10 @@ class SubmodelController extends Controller
 {
     /** @var string Name of the class to be manipulated */
     public $recordClass;
-
+    
+    /** @var string Name of the attribute which will store the given
+    relation ID */
+    public $relationAttribute;
     /**
      * @inheritdoc
      */
@@ -49,10 +52,11 @@ class SubmodelController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($relation_id)
     {
         /** @var ActiveRecord $model */
         $model = new $this->recordClass;
+        $model->{$this->relationAttribute} = $relation_id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save())
             return $this->redirect(['view', 'id' => $model->id]);

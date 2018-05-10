@@ -10,4 +10,5 @@ use app\utilities\SubmodelController;
 class PhonesController extends SubmodelController
 {
     public $recordClass = 'app\models\customer\PhoneRecord';
+    public $relationAttribute = 'customer_id';
 }

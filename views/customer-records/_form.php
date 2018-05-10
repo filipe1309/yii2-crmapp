@@ -32,7 +32,7 @@ use yii\bootstrap\ActiveForm;
                     'controller' => 'phones',
                     'header' => Html::a(
                         '<i class="glyphicon glyphicon-plus"></i>&nbsp;Add New',
-                        ['phones/create']
+                        ['phones/create', 'relation_id' => $model->id]
                     ),
                     'template' => '{update}{delete}',
                 ],
@@ -56,7 +56,7 @@ use yii\bootstrap\ActiveForm;
                     'controller' => 'addresses',
                     'header' => Html::a(
                         '<i class="glyphicon glyphicon-plus"></i>&nbsp;Add New',
-                        ['addresses/create']
+                        ['addresses/create', 'relation_id' => $model->id]
                     ),
                     'template' => '{update}{delete}',
                 ],
@@ -77,7 +77,7 @@ use yii\bootstrap\ActiveForm;
                     'controller' => 'emails',
                     'header' => Html::a(
                         '<i class="glyphicon glyphicon-plus"></i>&nbsp;Add New',
-                        ['emails/create']
+                        ['emails/create', 'relation_id' => $model->id]
                     ),
                     'template' => '{update}{delete}',
                 ],

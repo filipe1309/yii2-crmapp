@@ -10,4 +10,5 @@ use app\utilities\SubmodelController;
 class EmailsController extends SubmodelController
 {
     public $recordClass = 'app\models\customer\EmailRecord';
+    public $relationAttribute = 'customer_id';
 }

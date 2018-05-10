@@ -10,4 +10,5 @@ use app\utilities\SubmodelController;
 class AddressesController extends SubmodelController
 {
     public $recordClass = 'app\models\customer\AddressRecord';
+    public $relationAttribute = 'customer_id';
 }
